@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+//import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,11 +8,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-const useStyles = makeStyles({
+/* const useStyles = makeStyles({
     table: {
       minWidth: 650,
     },
-  });
+  }); */
 
 const DriverStandingsTable = (props) => {
     const driversRows = props.driverStandingsData
@@ -30,10 +30,10 @@ const DriverStandingsTable = (props) => {
                 <TableHead>
                   <TableRow>
                     <TableCell>Position</TableCell>
-                    <TableCell align="right">Name</TableCell>
-                    <TableCell align="right">Constructor</TableCell>
-                    <TableCell align="right">Wins</TableCell>
-                    <TableCell align="right">Points</TableCell>
+                    <TableCell align="left">Name</TableCell>
+                    <TableCell align="left">Constructor</TableCell>
+                    <TableCell align="left">Wins</TableCell>
+                    <TableCell align="left">Points</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -42,10 +42,10 @@ const DriverStandingsTable = (props) => {
                         <TableCell component="th" scope="row">
                             {row.position}
                         </TableCell>
-                        <TableCell align="right">{row.name}</TableCell>
-                        <TableCell align="right">{row.constructor}</TableCell>
-                        <TableCell align="right">{row.wins}</TableCell>
-                        <TableCell align="right">{row.points}</TableCell>
+                        <TableCell align="left">{row.name}</TableCell>
+                        <TableCell align="left">{row.constructor}</TableCell>
+                        <TableCell align="left">{row.wins}</TableCell>
+                        <TableCell align="left">{row.points}</TableCell>
                     </TableRow>
                 ))}  
                 </TableBody>

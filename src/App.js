@@ -11,8 +11,8 @@ import DriverStandingsTable from './components/DriverStandingsTable'
 // primary calls
 
 const dummyButtomStyle = {
-  height:"800px",
-  width:"600px"
+  height:"400px",
+  width:"300px"
 }
 
 function App() {
