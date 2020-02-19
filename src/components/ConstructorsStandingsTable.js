@@ -14,8 +14,53 @@ import Paper from '@material-ui/core/Paper';
     },
   }); */
 
-const DriverStandingsTable = (props) => {
-    const driversRows = props.driverStandingsData
+const ConstructorsStandingsTable = (props) => {
+    const constructorRows = props.constructorStandingsData
+
+    if (typeof constructorRows === 'string') {
+        return (
+            <p>No constructor data to render</p>
+        )
+    } else {
+        return (
+            <>
+                <TableContainer component={Paper}>
+              <Table  size="small" aria-label="a dense table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Position</TableCell>
+                    <TableCell align="left">Constructor</TableCell>
+                    <TableCell align="left">Wins</TableCell>
+                    <TableCell align="left">Points</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                {constructorRows.map(row => (
+                    <TableRow key={row.position}>
+                        <TableCell component="th" scope="row">
+                            {row.position}
+                        </TableCell>
+                        <TableCell align="left">{row.constructor}</TableCell>
+                        <TableCell align="left">{row.wins}</TableCell>
+                        <TableCell align="left">{row.points}</TableCell>
+                    </TableRow>
+                ))}  
+                </TableBody>
+              </Table>
+            </TableContainer>
+            </>
+        )
+    }
+
+    
+}
+
+export default ConstructorsStandingsTable
+
+
+
+/* 
+const driversRows = props.driverStandingsData
 
     if (typeof driversRows === 'string') {
         return (
@@ -56,6 +101,5 @@ const DriverStandingsTable = (props) => {
           )
     }
        
-}
 
-export default DriverStandingsTable
+*/

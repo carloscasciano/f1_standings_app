@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require('axios')
 
 
 const createDriverStandingsData = (position, name, constructor, wins, points) => {
@@ -6,13 +6,14 @@ const createDriverStandingsData = (position, name, constructor, wins, points) =>
 }
 
 const createDriverStandingsRows = (driversList) => {
-    console.log(driversList[0]["Constructors"])
+    
     let driverStandingsRows = []
     for (let i = 0; i < driversList.length; i++) {
         let constructorCheck = ""
         
+        // API dont have constructors info if season did not started, used conditional below to overrides it 
         if (!driversList[i]["Constructors"].includes(i)) {
-            constructorCheck = "unavailable"
+            constructorCheck = "available at season start"
         } else {
             constructorCheck = driversList[i]["Constructors"][0]["name"]
         }
