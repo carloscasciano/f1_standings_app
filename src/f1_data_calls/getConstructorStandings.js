@@ -1,6 +1,5 @@
 const axios = require('axios')
 
-
 const createConstructorsStandingsData = (position, constructor, wins, points) => {
     return {position, constructor, wins, points}
 }
@@ -21,7 +20,7 @@ const createConstructorRows = (constructorsList) => {
 
 async function getRawConstructorStandingsData() {
     try {
-        const response = await axios.get('https://ergast.com/api/f1/1958/constructorStandings.json')
+        const response = await axios.get('https://ergast.com/api/f1/2019/constructorStandings.json')
         return response
     } catch (error) {
       console.error(error);

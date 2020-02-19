@@ -2,6 +2,15 @@ https://ergast.com/api/f1/2019/driverStandings
 https://ergast.com/api/f1/2019/constructorStandings
 https://ergast.com/api/f1/2019/constructorStandings
 https://ergast.com/api/f1/2019/1/results/1
+https://ergast.com/api/f1/2019.json
 
 
-constructor standings only after 1958, add conditions
+esse aqui pega todos os primeiros lugares do ano:
+https://ergast.com/api/f1/2019/results/1.json
+
+esse todos os melhores qualifiers
+https://ergast.com/api/f1/2019/qualifying/1.json
+
+
+
+[ ] constructor standings only after 1958, add conditions
