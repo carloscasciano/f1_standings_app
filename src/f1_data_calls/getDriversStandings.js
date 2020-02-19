@@ -12,7 +12,7 @@ const createDriverStandingsRows = (driversList) => {
         let constructorCheck = ""
         
         // API dont have constructors info if season did not started, used conditional below to overrides it 
-        if (!driversList[i]["Constructors"].includes(i)) {
+        if (driversList[i]["Constructors"].includes(i)) {
             constructorCheck = "available at season start"
         } else {
             constructorCheck = driversList[i]["Constructors"][0]["name"]
@@ -32,7 +32,7 @@ const createDriverStandingsRows = (driversList) => {
 
 async function getRawDriverStandingsData() {
     try {
-        const response = await axios.get('https://ergast.com/api/f1/2020/driverStandings.json')
+        const response = await axios.get('https://ergast.com/api/f1/2019/driverStandings.json')
         return response
     } catch (error) {
       console.error(error);

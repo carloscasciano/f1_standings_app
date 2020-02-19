@@ -50,11 +50,12 @@ async function primarySetScheduleData() {
       <Button onClick={primarySetDriversStandingsData} style={dummyButtomStyle} variant="contained">get drivers data</Button>
       <Button onClick={primarySetConstructorsStandingsData} style={dummyButtomStyle} variant="contained">get constructor data</Button>
       <Button onClick={primarySetScheduleData} style={dummyButtomStyle} variant="contained">get schedule data</Button>
-      <DriverStandingsTable  driverStandingsData={driverStandingsData} />
+      <DriverStandingsTable driverStandingsData={driverStandingsData} />
       <ConstructorsStandingsTable constructorStandingsData={constructorStandingsData} />
       <ScheduleTable scheduleData={scheduleData} />
     </div>
   )
 }
 
-export default App;
+export default App
+

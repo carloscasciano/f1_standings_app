@@ -1,18 +1,4 @@
 import React from 'react'
-
-const ScheduleTable = () => {
-    return(
-        <>
-            <p>schedule data here</p>
-        </>
-    )
-}
-
-export default ScheduleTable
-
-/* 
-
-import React from 'react';
 //import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -22,12 +8,59 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-/* const useStyles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
-  }); */
+const ScheduleTable = (props) => {
+    console.log(props)
+    const scheduleRows = props.scheduleData
+
+    if (typeof scheduleRows === 'string') {
+        return (
+            <p>No schedule data to render</p>
+        )
+    } else {
+        return(
+            <>
+                <>
+            <TableContainer component={Paper}>
+              <Table  size="small" aria-label="a dense table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Date</TableCell>
+                    <TableCell align="left">Time</TableCell>
+                    <TableCell align="left">Grand Prix</TableCell>
+                    <TableCell align="left">Circuit</TableCell>
+                    <TableCell align="left">Pole Position</TableCell>
+                    <TableCell align="left">Winner</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                {scheduleRows.map(row => (
+                    <TableRow key={row.gp}>
+                        <TableCell component="th" scope="row">{row.date}</TableCell>
+                        <TableCell align="left">{row.hour}</TableCell>
+                        <TableCell align="left">{row.gp}</TableCell>
+                        <TableCell align="left">{row.circuit}</TableCell>
+                        <TableCell align="left">{row.polePosition}</TableCell>
+                        <TableCell align="left">{row.raceWinner}</TableCell>
+                    </TableRow>
+                ))}  
+                </TableBody>
+              </Table>
+            </TableContainer>
+            </>
+            </>
+        )
+    }
+
+    
+}
+
+export default ScheduleTable
+
 /* 
+
+
+
+
   const DriverStandingsTable = (props) => {
     const driversRows = props.driverStandingsData
 
