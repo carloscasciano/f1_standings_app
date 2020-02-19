@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react'
+import Button from '@material-ui/core/Button'
+// axios calls
+import getDriversStandingsData from './f1_data_calls/getDriversStandings'
+// components
+import DriverStandingsTable from './components/DriverStandingsTable'
+
+
+// primary calls
+
+const dummyButtomStyle = {
+  height:"800px",
+  width:"600px"
+}
 
 function App() {
+// states
+
+const [driverStandingsData, setDriverStandingsData] = useState("driversDataWillComeHere")
+
+// handlers
+
+async function primarySetDriversStandingsData() {
+  setDriverStandingsData(await getDriversStandingsData())
+}
+
+
+// App:
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Button onClick={primarySetDriversStandingsData} style={dummyButtomStyle} variant="contained">get dummy data</Button>
+      <DriverStandingsTable  driverStandingsData={driverStandingsData}/>    
     </div>
-  );
+  )
 }
 
 export default App;
