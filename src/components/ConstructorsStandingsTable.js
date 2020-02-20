@@ -17,7 +17,29 @@ import Paper from '@material-ui/core/Paper';
 const ConstructorsStandingsTable = (props) => {
     const constructorRows = props.constructorStandingsData
 
-    if (typeof constructorRows === 'string') {
+    if (constructorRows === 'did not existed until 1958') {
+      return (
+        <>
+          <TableContainer component={Paper}>
+                <Table  size="small" aria-label="a dense table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Position</TableCell>
+                    <TableCell align="left">Constructor</TableCell>
+                    <TableCell align="left">Wins</TableCell>
+                    <TableCell align="left">Points</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                    <TableRow>
+                       <TableCell align="left">did not existed until 1958</TableCell>
+                    </TableRow>              
+                </TableBody>
+              </Table>
+            </TableContainer>
+        </>
+      )
+  } else if (typeof constructorRows === 'string') {
         return (
             <p>No constructor data to render</p>
         )
@@ -25,7 +47,7 @@ const ConstructorsStandingsTable = (props) => {
         return (
             <>
                 <TableContainer component={Paper}>
-              <Table  size="small" aria-label="a dense table">
+                <Table  size="small" aria-label="a dense table">
                 <TableHead>
                   <TableRow>
                     <TableCell>Position</TableCell>

@@ -38,7 +38,6 @@ const createDriverStandingsRows = (driversList) => {
     return driverStandingsRows
 }
 
-
 async function getDriverStandingsData(year) {
 
     const response = await getRawDriverStandingsData(year)

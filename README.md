@@ -13,5 +13,6 @@ https://ergast.com/api/f1/2019/qualifying/1.json
 
 
 
-[ ] constructor standings only after 1958, add conditions
-[ ] qualifying results for pole position only after 2003
+[X] constructor standings only after 1958, add conditions  
+[X] qualifying results for pole position only after 2003  
+[ ] handle errors with screen messages  

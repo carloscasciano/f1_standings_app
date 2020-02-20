@@ -32,15 +32,24 @@ const createScheduleData = (date, hour, gp, circuit, polePosition, raceWinner, d
     return {date, hour, gp, circuit, polePosition, raceWinner, details}
 }
 
-const createScheduleRows = (scheduleList, qualifyingList, winnerList) => {
+const createScheduleRows = (scheduleList, qualifyingList, winnerList, year) => {
     let scheduleRows = []
+    let qualyfingData = ""
+
     for (let i = 0; i < scheduleList.length; i++) {
+
+        if (qualifyingList === "before 2003") {
+            qualyfingData = `not available before 2003`
+        } else {
+            qualyfingData = qualifyingList[i]["QualifyingResults"][0]["Driver"]['familyName']
+        }
+
         let tempArray = createScheduleData(
             scheduleList[i]["date"],
             scheduleList[i]["time"],
             scheduleList[i]["raceName"],
             scheduleList[i]["Circuit"]["circuitName"],
-            qualifyingList[i]["QualifyingResults"][0]["Driver"]['familyName'],
+            qualyfingData,
             winnerList[i]["Results"][0]["Driver"]['familyName'],
             scheduleList[i]["url"]
 
@@ -57,17 +66,24 @@ async function getScheduleData(year) {
     const scheduleParsedJson = JSON.parse(scheduleUnformattedJson)
     const scheduleList = scheduleParsedJson["MRData"]["RaceTable"]["Races"]
     
-    const qualifyingResponse = await getQualifyingData(year)
-    const qualifyingUnformattedJson = qualifyingResponse.request.response
-    const qualifyingParsedJson = JSON.parse(qualifyingUnformattedJson)
-    const qualifyingList = qualifyingParsedJson["MRData"]["RaceTable"]["Races"]
+    // api does not have info before 2003
+    let qualifyingList = []
+    if (year < 2003) {
+        qualifyingList = "before 2003"
+    } else {
+        const qualifyingResponse = await getQualifyingData(year)
+        const qualifyingUnformattedJson = qualifyingResponse.request.response
+        const qualifyingParsedJson = JSON.parse(qualifyingUnformattedJson)
+        qualifyingList = qualifyingParsedJson["MRData"]["RaceTable"]["Races"]
+    }
+   
 
     const winnerResponse = await getWinnerData(year)
     const winnerUnformattedJson = winnerResponse.request.response
     const winnerParsedJson = JSON.parse(winnerUnformattedJson)
     const winnerList = winnerParsedJson["MRData"]["RaceTable"]["Races"]
 
-    let returnData = createScheduleRows(scheduleList, qualifyingList, winnerList)
+    let returnData = createScheduleRows(scheduleList, qualifyingList, winnerList, year)
     returnData = returnData.map(element=>element)
     
     return returnData

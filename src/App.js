@@ -27,7 +27,7 @@ function App() {
 const [driverStandingsData, setDriverStandingsData] = useState("driversDataWillComeHere")
 const [constructorStandingsData, setConstructorStandingsData] = useState("constructorDataWillComeHere")
 const [scheduleData, setScheduleData] = useState("scheduleDataWillComeHere")
-const [year, setYear] = useState(2011)
+const [year, setYear] = useState(2002)
 
 
 // handlers

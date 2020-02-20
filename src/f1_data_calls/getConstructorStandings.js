@@ -29,13 +29,18 @@ const createConstructorRows = (constructorsList) => {
 
 
 async function getConstructorStandingsData(year) {
-    const response = await getRawConstructorStandingsData(year)
-    const unformattedJson = response.request.response
-    const parsedJson = JSON.parse(unformattedJson)
-    const constructorsList = parsedJson["MRData"]["StandingsTable"]["StandingsLists"][0]["ConstructorStandings"]
-    let returnData = createConstructorRows(constructorsList)
-    returnData = returnData.map(element=>element)
-    return returnData
+    // constructors standings not available before 1958 on API
+    if (year < 1958) {
+        return "did not existed until 1958"
+    } else {
+        const response = await getRawConstructorStandingsData(year)
+        const unformattedJson = response.request.response
+        const parsedJson = JSON.parse(unformattedJson)
+        const constructorsList = parsedJson["MRData"]["StandingsTable"]["StandingsLists"][0]["ConstructorStandings"]
+        let returnData = createConstructorRows(constructorsList)
+        returnData = returnData.map(element=>element)
+        return returnData
+    }
 }
 
 export default getConstructorStandingsData

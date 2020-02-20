@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 const ScheduleTable = (props) => {
-    console.log(props)
+    
     const scheduleRows = props.scheduleData
 
     if (typeof scheduleRows === 'string') {
