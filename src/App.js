@@ -27,20 +27,21 @@ function App() {
 const [driverStandingsData, setDriverStandingsData] = useState("driversDataWillComeHere")
 const [constructorStandingsData, setConstructorStandingsData] = useState("constructorDataWillComeHere")
 const [scheduleData, setScheduleData] = useState("scheduleDataWillComeHere")
+const [year, setYear] = useState(2011)
 
 
 // handlers
 
 async function primarySetDriversStandingsData() {
-  setDriverStandingsData(await getDriversStandingsData())
+  setDriverStandingsData(await getDriversStandingsData(year))
 }
 
 async function primarySetConstructorsStandingsData() {
-  setConstructorStandingsData(await getConstructorStandingsData())
+  setConstructorStandingsData(await getConstructorStandingsData(year))
 }
 
 async function primarySetScheduleData() {
-  setScheduleData(await getScheduleData())
+  setScheduleData(await getScheduleData(year))
 }
 
 // App:

@@ -1,5 +1,13 @@
 const axios = require('axios')
 
+async function getRawDriverStandingsData(year) {
+    try {
+        const response = await axios.get(`https://ergast.com/api/f1/${year}/driverStandings.json`)
+        return response
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
 const createDriverStandingsData = (position, name, constructor, wins, points) => {
     return {position, name, constructor, wins, points}
@@ -30,18 +38,10 @@ const createDriverStandingsRows = (driversList) => {
     return driverStandingsRows
 }
 
-async function getRawDriverStandingsData() {
-    try {
-        const response = await axios.get('https://ergast.com/api/f1/2019/driverStandings.json')
-        return response
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
-async function getDriverStandingsData() {
+async function getDriverStandingsData(year) {
 
-    const response = await getRawDriverStandingsData()
+    const response = await getRawDriverStandingsData(year)
     const unformattedJson = response.request.response
     const parsedJson = JSON.parse(unformattedJson)
     const driversList = parsedJson["MRData"]["StandingsTable"]["StandingsLists"][0]["DriverStandings"]
