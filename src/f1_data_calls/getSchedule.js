@@ -1,5 +1,7 @@
 const axios = require('axios')
 
+
+
 async function getRawScheduleStandingsData(year) {
     try {
         const response = await axios.get(`https://ergast.com/api/f1/${year}.json`)
