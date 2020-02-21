@@ -16,4 +16,4 @@ https://ergast.com/api/f1/2019/qualifying/1.json
 [X] constructor standings only after 1958, add conditions  
 [X] qualifying results for pole position only after 2003  
 [ ] handle errors with screen messages  
-[ ] format hour
+[X] format hour
