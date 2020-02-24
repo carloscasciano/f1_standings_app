@@ -17,3 +17,5 @@ https://ergast.com/api/f1/2019/qualifying/1.json
 [X] qualifying results for pole position only after 2003  
 [ ] handle errors with screen messages  
 [X] format hour
+[ ] clean code
+[ ]

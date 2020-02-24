@@ -1,5 +1,5 @@
 import React from 'react';
-//import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,14 +8,20 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-/* const useStyles = makeStyles({
+const useStyles = makeStyles({
     table: {
       minWidth: 650,
     },
-  }); */
+    constructorIcon: {
+      height: 50,
+      width: 50
+    }
+  });
+
 
 const DriverStandingsTable = (props) => {
     const driversRows = props.driverStandingsData
+    const classes = useStyles()
 
     if (typeof driversRows === 'string') {
         return (
@@ -43,7 +49,17 @@ const DriverStandingsTable = (props) => {
                             {row.position}
                         </TableCell>
                         <TableCell align="left">{row.name}</TableCell>
-                        <TableCell align="left">{row.constructor}</TableCell>
+                        <img src={`http://localhost:3001/drivers_imgs/${row.name}.png`} 
+                            className={classes.constructorIcon}
+                            alt={row.name} 
+                            onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/drivers_imgs/dummy.png`}} />
+                        <TableCell align="left">
+                        <img src={`http://localhost:3001/constructors_imgs/${row.constructor}.png`} 
+                         className={classes.constructorIcon} 
+                         alt={row.constructor}
+                         onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
+                         />
+                        </TableCell>
                         <TableCell align="left">{row.wins}</TableCell>
                         <TableCell align="left">{row.points}</TableCell>
                     </TableRow>
