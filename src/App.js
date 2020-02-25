@@ -60,9 +60,6 @@ const getConstructorsFullData = () => {
   primarySetConstructorsStandingsData(year)
 }
 
-
-
-
 // App:
 
   return (
@@ -79,13 +76,13 @@ const getConstructorsFullData = () => {
         direction="row"
         justify="center"
         alignItems="flex-start"
-        style={{width:"90%"}}
+        /* style={{width:"90%"}} */
       >
         <DriverStandingsTable driverStandingsData={driverStandingsData} />
         <ConstructorsStandingsTable constructorStandingsData={constructorStandingsData} constructorsImages = {constructorsImages} />
         <ScheduleTable scheduleData={scheduleData} />
         {/* <TweetsList /> */}
-        </Grid>
+      </Grid>
     </div>
   )
 }

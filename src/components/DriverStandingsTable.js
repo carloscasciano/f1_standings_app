@@ -11,7 +11,7 @@ import Tooltip from '@material-ui/core/Tooltip'
 
 const useStyles = makeStyles({
   paperStyle: {
-    minWidth: 320,
+    minWidth: 350,
     minHeight: 120,
     marginBottom: 10,
     margimTop: 5,
@@ -27,7 +27,8 @@ const useStyles = makeStyles({
     gridRow: "3",
     display: "flex",
     justifyContent: "space-between",
-    paddingLeft: 10
+    paddingLeft: 10,
+    paddingBottom: 10
   },
   driverConstructorStyle: {
     gridColumn: "1/3",
@@ -46,7 +47,7 @@ const useStyles = makeStyles({
     alignContent: "center",
     justifyContent: "flexStart",
     paddingLeft: 15,
-    paddingTop: 10
+    paddingTop: 15
   },
   constructorIconStyle: {
     height: 35,
@@ -55,8 +56,8 @@ const useStyles = makeStyles({
     paddingRight: 10,
   },
   driverIconStyle: {
-    height: 120,
-    width: 120,
+    height: 150,
+    width: 150,
   },
   miniIconGroupStyle: {
     display: "flex"

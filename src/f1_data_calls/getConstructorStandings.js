@@ -9,8 +9,8 @@ async function getRawConstructorStandingsData(year) {
     }
   }
 
-const createConstructorsStandingsData = (position, constructor, wins, points) => {
-    return {position, constructor, wins, points}
+const createConstructorsStandingsData = (position, constructor, wins, points, nationality, details) => {
+    return {position, constructor, wins, points, nationality, details}
 }
 
 const createConstructorRows = (constructorsList) => {
@@ -20,7 +20,9 @@ const createConstructorRows = (constructorsList) => {
             constructorsList[i]['position'],
             constructorsList[i]['Constructor']['name'],
             constructorsList[i]['wins'],
-            constructorsList[i]['points']
+            constructorsList[i]['points'],
+            constructorsList[i]['Constructor']['nationality'],
+            constructorsList[i]['Constructor']['url']
         )
         constructorStandingsRows.push(tempArray)
     }

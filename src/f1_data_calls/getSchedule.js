@@ -32,8 +32,8 @@ async function getWinnerData(year) {
   }
 
 
-const createScheduleData = (date, hour, gp, circuit, polePosition, raceWinner, details) => {
-    return {date, hour, gp, circuit, polePosition, raceWinner, details}
+const createScheduleData = (date, hour, gp, circuit, polePosition, raceWinner, details, country) => {
+    return {date, hour, gp, circuit, polePosition, raceWinner, details, country}
 }
 
 const createScheduleRows = (scheduleList, qualifyingList, winnerList, year) => {
@@ -46,18 +46,18 @@ const createScheduleRows = (scheduleList, qualifyingList, winnerList, year) => {
 
         // qualifyingList off cases 
         if (qualifyingList === "before 2003") {
-            qualyfingData = `sorry, not available before 2003`
+            qualyfingData = `only > 2003`
         } else if (qualifyingList.length === 0) {
-            qualyfingData = `update on ${moment(scheduleList[i]["date"], "YYYY-MM-DD").add(1,'day').format("MMMM Do")}`
+            qualyfingData = `${moment(scheduleList[i]["date"], "YYYY-MM-DD").add(1,'day').format("MMMM Do")}`
         } else {
             qualyfingData = qualifyingList[i]["QualifyingResults"][0]["Driver"]['familyName']
         }
         
         //winnersData off cases
         if (winnerList.length === 0) {
-            winnerData = `update on ${moment(scheduleList[i]["date"], "YYYY-MM-DD").add(1,'day').format("MMMM Do")}`
+            winnerData = `${moment(scheduleList[i]["date"], "YYYY-MM-DD").add(1,'day').format("MMMM Do")}`
         } else if (winnerList[i]["Results"][0]["Driver"]['familyName'] === undefined) {
-            winnerData = `update on ${moment(scheduleList[i]["date"], "YYYY-MM-DD").add(1,'day').format("MMMM Do")}`
+            winnerData = `${moment(scheduleList[i]["date"], "YYYY-MM-DD").add(1,'day').format("MMMM Do")}`
         } else {
             winnerData = winnerList[i]["Results"][0]["Driver"]['familyName']
         }
@@ -76,7 +76,8 @@ const createScheduleRows = (scheduleList, qualifyingList, winnerList, year) => {
             scheduleList[i]["Circuit"]["circuitName"],
             qualyfingData,
             winnerData,
-            scheduleList[i]["url"]
+            scheduleList[i]["url"],
+            scheduleList[i]["Circuit"]["Location"]["country"]
 
         )
         scheduleRows.push(tempArray)
