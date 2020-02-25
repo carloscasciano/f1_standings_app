@@ -11,7 +11,7 @@ import Tooltip from '@material-ui/core/Tooltip'
 
 const useStyles = makeStyles({
   paperStyle: {
-    minWidth: 350,
+    minWidth: 380,
     minHeight: 120,
     marginBottom: 10,
     margimTop: 5,

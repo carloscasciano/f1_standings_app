@@ -7,6 +7,7 @@ import EmojiFlagsIcon from '@material-ui/icons/EmojiFlags'
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents'
 import TodayIcon from '@material-ui/icons/Today'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
+import Tooltip from '@material-ui/core/Tooltip'
 
 
 
@@ -17,10 +18,10 @@ const useStyles = makeStyles({
 
   countryIcon: {
     height: 64,
-    width: 64
+    width: 64,
   },
   paperStyle: {
-    minWidth: 350,
+    minWidth: 380,
     minHeight: 120,
     marginBottom: 10,
     margimTop: 5,
@@ -108,8 +109,8 @@ const ScheduleTable = (props) => {
                     <div className={classes.gpDateTime}>
                       <div className={classes.dateGroup}>
                         {/* <TodayIcon></TodayIcon> */}
-                        <Typography variant="body1"> {scheduleData.date} </Typography>
-                        <Typography variant="body1"> {scheduleData.time} </Typography>
+                        <Typography variant="body1"> {scheduleData.date} - {scheduleData.hour}  </Typography>
+                        
                       </div>
                       
                     </div>
@@ -117,16 +118,24 @@ const ScheduleTable = (props) => {
                     <div className={classes.gpWinners}>
 
                       <div className={classes.winnersMiniGroup}>
-                        <EmojiFlagsIcon></EmojiFlagsIcon>
+
+                        <Tooltip title="pole position" placement="top" arrow>
+                          <EmojiFlagsIcon />      
+                        </Tooltip>
                         <Typography variant="body1"> {scheduleData.polePosition} </Typography>
+
+                       
                       </div>
 
                       <div className={classes.winnersMiniGroup}>
-                        <EmojiEventsIcon></EmojiEventsIcon>
+                        
+                      <Tooltip title="race winner" placement="top" arrow>
+                        <EmojiEventsIcon />
+                      </Tooltip>
                         <Typography variant="body1"> {scheduleData.raceWinner} </Typography>
                       </div>
 
-                      <OpenInNewIcon></OpenInNewIcon>
+                      <a href={scheduleData.details} target="blank"><OpenInNewIcon /></a>
                       
                     </div>
                   </Paper>
