@@ -84,7 +84,7 @@ const getConstructorsFullData = () => {
         <DriverStandingsTable driverStandingsData={driverStandingsData} />
         <ConstructorsStandingsTable constructorStandingsData={constructorStandingsData} constructorsImages = {constructorsImages} />
         <ScheduleTable scheduleData={scheduleData} />
-        <TweetsList />
+        {/* <TweetsList /> */}
         </Grid>
     </div>
   )

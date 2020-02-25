@@ -1,77 +1,143 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid'
+import EqualizerIcon from '@material-ui/icons/Equalizer';
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
+import GradeIcon from '@material-ui/icons/Grade';
+import Paper from '@material-ui/core/Paper'
+import Tooltip from '@material-ui/core/Tooltip'
+
 
 const useStyles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
-    constructorIcon: {
-      height: 50,
-      width: 50
-    }
-  });
-
+  paperStyle: {
+    minWidth: 320,
+    minHeight: 120,
+    marginBottom: 10,
+    margimTop: 5,
+    display: "grid",
+    gridGap: 5,
+  },
+  driverAvatarStyle: {
+    gridColumn: "3/4",
+    gridRow: "1/4"
+  },
+  infoIconsStyle:{
+    gridColumn: "1/3",
+    gridRow: "3",
+    display: "flex",
+    justifyContent: "space-between",
+    paddingLeft: 10
+  },
+  driverConstructorStyle: {
+    gridColumn: "1/3",
+    gridRow: "2",
+    display: "flex",
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "flexStart",
+    paddingBottom: 15
+  },
+  driverNameStyle: {
+    gridColumn: "1/3",
+    gridRow: "1",
+    display: "flex",
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "flexStart",
+    paddingLeft: 15,
+    paddingTop: 10
+  },
+  constructorIconStyle: {
+    height: 35,
+    width: 35,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  driverIconStyle: {
+    height: 120,
+    width: 120,
+  },
+  miniIconGroupStyle: {
+    display: "flex"
+  }
+})
 
 const DriverStandingsTable = (props) => {
-    const driversRows = props.driverStandingsData
-    const classes = useStyles()
+  const driversRows = props.driverStandingsData
+  const classes = useStyles()
 
-    if (typeof driversRows === 'string') {
-        return (
-            <p>No data to render</p>
-        )
-    } else {
-        return (
+  if (typeof driversRows === 'string') {
+    return (
+        <p>Loading</p>
+    )
+    
+  } else {
+    return (
+      <>
+        <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"       
+        >
+          {driversRows.map(driverData => (
+            <Paper
+              key={driverData.position}
+              className={classes.paperStyle}
+              elevation={5}
+            >
+              <div className={classes.driverNameStyle}>
+                <Typography variant="h6"><b>{driverData.name}</b></Typography>
+              </div>
 
-            <>
-            <TableContainer component={Paper}>
-              <Table  size="small" aria-label="a dense table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Position</TableCell>
-                    <TableCell align="left">Name</TableCell>
-                    <TableCell align="left">Constructor</TableCell>
-                    <TableCell align="left">Wins</TableCell>
-                    <TableCell align="left">Points</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                {driversRows.map(row => (
-                    <TableRow key={row.position}>
-                        <TableCell component="th" scope="row">
-                            {row.position}
-                        </TableCell>
-                        <TableCell align="left">{row.name}</TableCell>
-                        <img src={`http://localhost:3001/drivers_imgs/${row.name}.png`} 
-                            className={classes.constructorIcon}
-                            alt={row.name} 
-                            onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/drivers_imgs/dummy.png`}} />
-                        <TableCell align="left">
-                        <img src={`http://localhost:3001/constructors_imgs/${row.constructor}.png`} 
-                         className={classes.constructorIcon} 
-                         alt={row.constructor}
-                         onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
-                         />
-                        </TableCell>
-                        <TableCell align="left">{row.wins}</TableCell>
-                        <TableCell align="left">{row.points}</TableCell>
-                    </TableRow>
-                ))}  
-                </TableBody>
-              </Table>
-            </TableContainer>
-            </>
-            
-          )
-    }
-       
+              <div className={classes.driverConstructorStyle}>
+                <img src={`http://localhost:3001/constructors_imgs/${driverData.constructor}.png`} 
+                            className={classes.constructorIconStyle} 
+                            alt={driverData.constructor}
+                            onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
+                />
+                <Typography variant="body2"> {driverData.constructor} </Typography>
+              </div>
+
+              <div className={classes.driverAvatarStyle}>
+                <img src={`http://localhost:3001/drivers_imgs/${driverData.name}.png`} 
+                      className={classes.driverIconStyle}
+                      alt={driverData.name} 
+                      onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/drivers_imgs/dummy.png`}} />
+              </div>
+
+              <div className={classes.infoIconsStyle}>
+                <div className={classes.miniIconGroupStyle} >      
+                  <Tooltip title="position" placement="top" arrow>
+                    <EqualizerIcon />    
+                  </Tooltip>                  
+                  <Typography> {driverData.position}º </Typography> 
+                </div>
+
+                <div className={classes.miniIconGroupStyle}>
+                  <Tooltip title="wins" placement="top" arrow>
+                    <EmojiEventsIcon />     
+                  </Tooltip> 
+                  <Typography> {driverData.wins} </Typography> 
+                </div>
+
+                <div className={classes.miniIconGroupStyle}>
+                  <Tooltip title="points" placement="top" arrow>
+                    <GradeIcon />    
+                  </Tooltip> 
+                  <Typography> {driverData.points} </Typography>
+                </div>
+
+              </div>   
+            </Paper>
+        ))}
+        </Grid>
+      </>
+    )
+  }      
 }
 
+
 export default DriverStandingsTable
+
