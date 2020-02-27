@@ -11,21 +11,18 @@ import getScheduleData from './f1_data_calls/getSchedule'
 
 
 // components
-import DriverStandingsTable from './components/DriverStandingsTable'
-import ConstructorsStandingsTable from './components/ConstructorsStandingsTable'
-import ScheduleTable from './components/ScheduleTable'
 import TopMenu from './components/TopMenu'
 import StandingsArea from './components/StandingsArea'
 import TweetsList from './components/TweetsList'
 
 
 function App() {
-// states
 
-const [driverStandingsData, setDriverStandingsData] = useState("driversDataWillComeHere")
-const [constructorStandingsData, setConstructorStandingsData] = useState("constructorDataWillComeHere")
-const [scheduleData, setScheduleData] = useState("scheduleDataWillComeHere")
+  // states
 
+const [driverStandingsData, setDriverStandingsData] = useState("")
+const [constructorStandingsData, setConstructorStandingsData] = useState("")
+const [scheduleData, setScheduleData] = useState("")
 
 // handlers
 
@@ -42,12 +39,14 @@ async function primarySetScheduleData(year) {
 }
 
 const handleAPICalls = (optionYear) => {
+  setDriverStandingsData("")
+  setConstructorStandingsData("")
+  setScheduleData("")
   let currentYear = Number(optionYear)
   primarySetDriversStandingsData(currentYear)
   primarySetConstructorsStandingsData(currentYear)
   primarySetScheduleData(currentYear)
 }
-
 
 
 // App:

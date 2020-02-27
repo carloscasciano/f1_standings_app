@@ -8,6 +8,7 @@ import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import GradeIcon from '@material-ui/icons/Grade';
 import Paper from '@material-ui/core/Paper'
 import Tooltip from '@material-ui/core/Tooltip'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 
 
@@ -61,10 +62,10 @@ export default function ConstructorsStandingsTable(props) {
   const constructorRows = props.constructorStandingsData
   const classes = useStyles()
   
-  if (constructorRows === 'constructorDataWillComeHere') {
+  if (constructorRows === '') {
     return (
       <>
-        <p>Loading... </p>
+        <CircularProgress />
 
       </>
     )

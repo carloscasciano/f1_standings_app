@@ -7,6 +7,7 @@ import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
 import GradeIcon from '@material-ui/icons/Grade';
 import Paper from '@material-ui/core/Paper'
 import Tooltip from '@material-ui/core/Tooltip'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 
 const useStyles = makeStyles({
@@ -73,7 +74,7 @@ const DriverStandingsTable = (props) => {
 
   if (typeof driversRows === 'string') {
     return (
-        <p>Loading</p>
+      <CircularProgress />
     )
     
   } else {

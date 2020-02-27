@@ -7,6 +7,7 @@ import EmojiFlagsIcon from '@material-ui/icons/EmojiFlags'
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Tooltip from '@material-ui/core/Tooltip'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 
 
@@ -78,7 +79,7 @@ const ScheduleTable = (props) => {
     if (typeof scheduleRows === 'string') {
         return (
           <>
-            <p>Loading..</p>
+            <CircularProgress />
           </>
         )
     } else {
@@ -98,7 +99,10 @@ const ScheduleTable = (props) => {
                     elevation={5}
                   >
                     <div className={classes.gpNameStyle}>
-                      <Typography variant="h6"><b>{scheduleData.circuit}</b></Typography>
+                      <Tooltip title={scheduleData.gp} placement="top-start">
+                        <Typography variant="h6"><b>{scheduleData.circuit}</b></Typography>
+                      </Tooltip>
+                      
                     </div>
 
                     <div className={classes.gpFlagStyle}>
