@@ -61,6 +61,9 @@ const useStyles = makeStyles({
   },
   miniIconGroupStyle: {
     display: "flex"
+  },
+  gridStyle: {
+    margin: 10
   }
 })
 
@@ -80,7 +83,8 @@ const DriverStandingsTable = (props) => {
           container
           direction="column"
           justify="center"
-          alignItems="center"       
+          alignItems="center" 
+          className={classes.gridStyle}      
         >
           {driversRows.map(driverData => (
             <Paper

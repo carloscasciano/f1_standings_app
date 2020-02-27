@@ -51,6 +51,9 @@ const useStyles = makeStyles({
   },
   miniIconGroupStyle: {
     display: "flex"
+  },
+  gridStyle: {
+    margin: 10
   }
 })
 
@@ -79,7 +82,7 @@ export default function ConstructorsStandingsTable(props) {
         direction="column"
         justify="center"
         alignItems="center"
-        className={classes.gridPosition}
+        className={classes.gridStyle}
       > 
         {constructorRows.map(constructorData => (
           <Paper

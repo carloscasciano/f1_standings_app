@@ -1,11 +1,19 @@
 
 import React from "react"
-//import React, { useEffect } from "react";
 import { TwitterTimelineEmbed } from "react-twitter-embed"
+import Grid from "@material-ui/core/Grid"
 
 const TweetsList = () => {
+
   return (
-    <section className="twitterContainer">
+
+    <Grid
+          container
+          direction="column"
+          justify="center"
+          alignItems="center"       
+        >
+      <div className="twitterContainer">
       <div className="twitter-embed">
         <TwitterTimelineEmbed
           sourceType="profile"
@@ -21,7 +29,10 @@ const TweetsList = () => {
           noFooter={true}
         ></ TwitterTimelineEmbed>
       </div>
-    </section>
+    </div>
+
+    </Grid>
+    
   )
 }
 

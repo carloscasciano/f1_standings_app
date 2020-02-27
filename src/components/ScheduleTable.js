@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid'
 import Typography from "@material-ui/core/Typography"
 import EmojiFlagsIcon from '@material-ui/icons/EmojiFlags'
 import EmojiEventsIcon from '@material-ui/icons/EmojiEvents'
-import TodayIcon from '@material-ui/icons/Today'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Tooltip from '@material-ui/core/Tooltip'
 
@@ -43,7 +42,8 @@ const useStyles = makeStyles({
     display: "flex",
     gridRow: "2/4",
     gridColumn: "1/3",
-    paddingBottom: 10
+    paddingBottom: 10,
+    justifyContent: "flex-start"
   },
   gpDetails: {
     gridRow: "3/4",
@@ -60,9 +60,12 @@ const useStyles = makeStyles({
     display: "flex"
   },
   dateGroup: {
-    paddingLeft: 30,
+    paddingLeft: 10,
     display: "flex",
     alignItems: "center"
+  },
+  gridStyle: {
+    margin: 10
   }
 })
 
@@ -75,7 +78,7 @@ const ScheduleTable = (props) => {
     if (typeof scheduleRows === 'string') {
         return (
           <>
-            <p>No schedule data to render</p>
+            <p>Loading..</p>
           </>
         )
     } else {
@@ -86,7 +89,7 @@ const ScheduleTable = (props) => {
                 direction="column"
                 justify="center"
                 alignItems="center"
-                className={classes.gridPosition}
+                className={classes.gridStyle}
               >
                 {scheduleRows.map(scheduleData => (
                   <Paper
@@ -108,9 +111,9 @@ const ScheduleTable = (props) => {
 
                     <div className={classes.gpDateTime}>
                       <div className={classes.dateGroup}>
-                        {/* <TodayIcon></TodayIcon> */}
-                        <Typography variant="body1"> {scheduleData.date} - {scheduleData.hour}  </Typography>
-                        
+                        <Typography variant="body1">
+                           {scheduleData.date} - {scheduleData.hour} GMT+0 
+                        </Typography>  
                       </div>
                       
                     </div>
