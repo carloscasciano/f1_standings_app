@@ -55,7 +55,7 @@ const TwitterArea = () => {
                 startIcon={<TwitterIcon />}
                 onClick={toggleDrawer('left', true)}
             >
-            LastNews
+            Last News
             </Button>
             <Drawer 
                 anchor="left" 

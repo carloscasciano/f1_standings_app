@@ -1,5 +1,4 @@
 import React from 'react'
-import TwitterArea from './TwitterArea'
 import DriverStandingsTable from './DriverStandingsTable'
 import ConstructorsStandingsTable from './ConstructorsStandingsTable'
 import ScheduleTable from './ScheduleTable'
@@ -27,7 +26,6 @@ const StandingsArea = (props) => {
 
     return(
         <>
-            <TwitterArea />
             <Grid
                 container
                 direction="row"
@@ -35,15 +33,16 @@ const StandingsArea = (props) => {
                 alignItems="flex-start"
             >
                 <div className={classes.columnAreaStyle}>
-                    <Typography variant="h5" className={classes.titleStyle}>Drivers</Typography>
-                    <DriverStandingsTable driverStandingsData={driverStandingsData} />
-                </div>
-                <div className={classes.columnAreaStyle}>
                     <Typography variant="h5" className={classes.titleStyle}>Constructors</Typography>
                     <ConstructorsStandingsTable constructorStandingsData={constructorStandingsData}/>
                 </div>
                 <div className={classes.columnAreaStyle}>
-                    <Typography variant="h5" className={classes.titleStyle}>Races</Typography>
+                    <Typography variant="h5" className={classes.titleStyle}>Drivers</Typography>
+                    <DriverStandingsTable driverStandingsData={driverStandingsData} />
+                </div>
+                
+                <div className={classes.columnAreaStyle}>
+                    <Typography variant="h5" className={classes.titleStyle}>Schedule</Typography>
                     <ScheduleTable scheduleData={scheduleData} />
                 </div>
                 

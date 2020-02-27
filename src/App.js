@@ -1,20 +1,13 @@
 import React from 'react';
 import './App.css';
 import {useState} from 'react'
-
-
 // axios calls
 import getDriversStandingsData from './f1_data_calls/getDriversStandings'
 import getConstructorStandingsData from './f1_data_calls/getConstructorStandings'
 import getScheduleData from './f1_data_calls/getSchedule'
-
-
-
 // components
 import TopMenu from './components/TopMenu'
 import StandingsArea from './components/StandingsArea'
-import TweetsList from './components/TweetsList'
-
 
 function App() {
 
@@ -74,11 +67,6 @@ const handleAPICalls = (optionYear) => {
       >
           
       </div>
-
-      {/* <div>
-          <TweetsList />
-        </div> */}
-
     </div>
 
   )
