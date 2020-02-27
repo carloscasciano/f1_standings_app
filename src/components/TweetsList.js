@@ -20,8 +20,8 @@ const TweetsList = () => {
           screenName="f1"
           options={{
             tweetLimit: "10",
-            width: "100%",
-            height: "100%"
+            width: 600,
+            height: 350
           }}
           theme="light"
           noHeader={true}
