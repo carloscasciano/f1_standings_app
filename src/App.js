@@ -15,6 +15,7 @@ import DriverStandingsTable from './components/DriverStandingsTable'
 import ConstructorsStandingsTable from './components/ConstructorsStandingsTable'
 import ScheduleTable from './components/ScheduleTable'
 import TopMenu from './components/TopMenu'
+import StandingsArea from './components/StandingsArea'
 import TweetsList from './components/TweetsList'
 
 
@@ -56,7 +57,12 @@ const handleAPICalls = (optionYear) => {
     <div className="App">
 
       <TopMenu handleAPICalls={handleAPICalls} />
-      
+      <StandingsArea 
+        driverStandingsData={driverStandingsData}
+        constructorStandingsData={constructorStandingsData}
+        scheduleData={scheduleData}
+      />
+
       <div
         style={{
           display: "flex",
@@ -67,10 +73,7 @@ const handleAPICalls = (optionYear) => {
         }    
       }
       >
-          <DriverStandingsTable driverStandingsData={driverStandingsData} />
-          <ConstructorsStandingsTable constructorStandingsData={constructorStandingsData}/>
-          <ScheduleTable scheduleData={scheduleData} />
-      
+          
       </div>
 
       {/* <div>

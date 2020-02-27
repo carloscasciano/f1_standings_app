@@ -102,11 +102,14 @@ const ScheduleTable = (props) => {
                     </div>
 
                     <div className={classes.gpFlagStyle}>
-                      <img src={`https://www.countryflags.io/${getCountryCode(`${scheduleData.country}`)}/flat/64.png`} 
-                          className={classes.countryIcon} 
-                          alt={scheduleData.gp}
-                          onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
-                          />
+                      <Tooltip title={scheduleData.country}>
+                        <img src={`https://www.countryflags.io/${getCountryCode(`${scheduleData.country}`)}/flat/64.png`} 
+                            className={classes.countryIcon} 
+                            alt={scheduleData.gp}
+                            onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
+                            />
+                      </Tooltip>
+                      
                     </div>
 
                     <div className={classes.gpDateTime}>
