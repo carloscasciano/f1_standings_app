@@ -1,6 +1,7 @@
 import React from 'react'
 import YearSelector from "./YearSelector"
 import TwitterArea from "./TwitterArea"
+import Information from "./Information"
 import { useMediaQuery } from 'react-responsive'
 
 import { makeStyles } from '@material-ui/core/styles'
@@ -82,6 +83,7 @@ const TopMenu = (props) => {
                         className={classes.yearSelectorStyle}
                     />
                     <TwitterArea />
+                    <Information />
             </Paper> 
         </>
     )
