@@ -1,16 +1,13 @@
 import React from 'react'
 import YearSelector from "./YearSelector"
 import TwitterArea from "./TwitterArea"
-import Information from "./Information"
-import { useMediaQuery } from 'react-responsive'
-
 import { makeStyles } from '@material-ui/core/styles'
+import { useMediaQuery } from 'react-responsive'
 import Paper from '@material-ui/core/Paper'
+import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import Link from '@material-ui/core/Link'
-
 
 const useStyles = makeStyles({
     topMenu: {
@@ -20,19 +17,16 @@ const useStyles = makeStyles({
         alignItems: "center",
         alignContent: "center",
         justifyContent: "space-between",
-        marginBottom: 15
-        
+        marginBottom: 15  
     },
     yearSelectorStyle: {
         paddingLeft: "50%",
         paddingRight: "50%",
-        
     },
     personalInfoStyle: {
         display: "flex",
         gridColumn: "1/4",
-        paddingLeft: 40
-        
+        paddingLeft: 40 
     },
     iconStyle: {
         paddingLeft: 4,
@@ -41,14 +35,13 @@ const useStyles = makeStyles({
     personalInfoStyleSmall: {
         display: "flex",
         gridColumn: "1/4",
-        paddingLeft: 4
-        
+        paddingLeft: 4   
     }
 })
 
 const TopMenu = (props) => {
+    
     const classes = useStyles()
-
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1000px)'})    
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1000px)'})
 

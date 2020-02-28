@@ -1,16 +1,15 @@
-import React from 'react';
+import React from 'react'
 import formatLongNames from '../code_logic/formatLongNames'
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles'
+import { useMediaQuery } from 'react-responsive'
+import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import EqualizerIcon from '@material-ui/icons/Equalizer';
-import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
-import GradeIcon from '@material-ui/icons/Grade';
 import Paper from '@material-ui/core/Paper'
 import Tooltip from '@material-ui/core/Tooltip'
 import CircularProgress from '@material-ui/core/CircularProgress'
-
-import { useMediaQuery } from 'react-responsive'
+import EqualizerIcon from '@material-ui/icons/Equalizer'
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents'
+import GradeIcon from '@material-ui/icons/Grade'
 
 const useStyles = makeStyles({
   paperStyle: {
@@ -60,11 +59,11 @@ const useStyles = makeStyles({
     height: 35,
     width: 35,
     paddingLeft: 10,
-    paddingRight: 10,
+    paddingRight: 10
   },
   driverIconStyle: {
     height: 140,
-    width: 140,
+    width: 140
   },
   miniIconGroupStyle: {
     display: "flex"
@@ -116,12 +115,12 @@ const DriverStandingsTable = (props) => {
           
           {driversRows.map(driverData => (
             
-            
             <Paper
               key={driverData.position}
               className={classes.paperStyle}
               elevation={5}
             >
+
               <div className={classes.driverNameStyle}>
                 <Typography 
                   variant="h6"
@@ -175,8 +174,8 @@ const DriverStandingsTable = (props) => {
                   </Tooltip> 
                   <Typography> {driverData.points} </Typography>
                 </div>
+              </div>  
 
-              </div>   
             </Paper>
         ))}
         </Grid>
@@ -187,4 +186,3 @@ const DriverStandingsTable = (props) => {
 
 
 export default DriverStandingsTable
-

@@ -2,9 +2,8 @@ import React from 'react'
 import DriverStandingsTable from './DriverStandingsTable'
 import ConstructorsStandingsTable from './ConstructorsStandingsTable'
 import ScheduleTable from './ScheduleTable'
-import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
-
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles({
     columnAreaStyle: {
@@ -12,7 +11,7 @@ const useStyles = makeStyles({
     },
     titleStyle: {
         margin: 15
-    },
+    }
 })
 
 const StandingsArea = (props) => {
@@ -20,7 +19,6 @@ const StandingsArea = (props) => {
     const driverStandingsData = props.driverStandingsData
     const constructorStandingsData = props.constructorStandingsData
     const scheduleData = props.scheduleData
-
     const classes = useStyles()
 
     return(
@@ -40,10 +38,8 @@ const StandingsArea = (props) => {
                 
                 <div className={classes.columnAreaStyle}>
                     <ScheduleTable scheduleData={scheduleData} />
-                </div>
-                
-            </Grid>
-        
+                </div>            
+            </Grid>      
         </>    
     )
 }

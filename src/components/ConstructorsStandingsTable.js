@@ -1,18 +1,17 @@
 
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { useMediaQuery } from 'react-responsive'
+import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import EqualizerIcon from '@material-ui/icons/Equalizer';
-import EmojiEventsIcon from '@material-ui/icons/EmojiEvents';
-import GradeIcon from '@material-ui/icons/Grade';
 import Paper from '@material-ui/core/Paper'
 import Tooltip from '@material-ui/core/Tooltip'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { useMediaQuery } from 'react-responsive'
+import EqualizerIcon from '@material-ui/icons/Equalizer'
+import EmojiEventsIcon from '@material-ui/icons/EmojiEvents'
+import GradeIcon from '@material-ui/icons/Grade'
 
 const useStyles = makeStyles({
-
   constructorIcon: {
     height: 120,
     width: 120
@@ -24,7 +23,7 @@ const useStyles = makeStyles({
     marginBottom: 10,
     margimTop: 5,
     display: "grid",
-    gridGap: 0,
+    gridGap: 0
   },
   paperStyleMobile: {
     minWidth: 240,
@@ -32,7 +31,7 @@ const useStyles = makeStyles({
     marginBottom: 10,
     margimTop: 5,
     display: "grid",
-    gridGap: 5,
+    gridGap: 5
   },
   constructorLogoStyle: {
     gridColumn: "4/6",
@@ -60,9 +59,6 @@ const useStyles = makeStyles({
   },
   miniIconGroupStyle: {
     display: "flex"
-  },
-  gridStyle: {
-    
   },
   paperTitleStyle: {
     marginBottom: 10,
@@ -100,7 +96,6 @@ export default function ConstructorsStandingsTable(props) {
         direction="column"
         justify="center"
         alignItems="center"
-        className={classes.gridStyle}
       > 
       
         {isDesktopOrLaptop &&        
@@ -121,11 +116,11 @@ export default function ConstructorsStandingsTable(props) {
             <div className={classes.constructorLogoStyle}>
               <a href={constructorData.details} target="blank">
                 <img src={`https://generalassets.herokuapp.com/constructors_imgs/${constructorData.constructor}.png`} 
-                          className={classes.constructorIcon} 
-                          alt={constructorData.constructor}
-                          onError={(e)=>{e.target.onerror = null; e.target.src=process.env.PUBLIC_URL + '/dummy_f1.png'}}
-                          />
-              </a>2019
+                      className={classes.constructorIcon} 
+                      alt={constructorData.constructor}
+                      onError={(e)=>{e.target.onerror = null; e.target.src=process.env.PUBLIC_URL + '/dummy_f1.png'}}
+                />
+              </a>
             </div>
 
             <div className={classes.constructorNameStyle}>
@@ -133,6 +128,7 @@ export default function ConstructorsStandingsTable(props) {
             </div>
 
             <div className={classes.infoIconsStyle}>
+
                 <div className={classes.miniIconGroupStyle} >      
                   <Tooltip title="position" placement="top" arrow>
                     <EqualizerIcon />    
@@ -153,6 +149,7 @@ export default function ConstructorsStandingsTable(props) {
                   </Tooltip> 
                   <Typography> {constructorData.points} </Typography>
                 </div>
+                
             </div>
 
           </Paper>

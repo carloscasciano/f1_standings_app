@@ -1,4 +1,3 @@
-// list copied from https://gist.github.com/maephisto/9228207
 
 const countryCodeAndName = {
     'Afghanistan': 'AF',
@@ -251,7 +250,6 @@ const countryCodeAndName = {
     'Zimbabwe': 'ZW'
     }
 
-
 const getCountryCode = (countryName) => {
     let returnCode = ""
     if(countryName === undefined) {
@@ -262,6 +260,5 @@ const getCountryCode = (countryName) => {
         return returnCode
     }
 }
-
 
 export default getCountryCode

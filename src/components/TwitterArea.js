@@ -2,12 +2,11 @@ import React from 'react'
 import TweetsList from './TweetsList'
 import Information from './Information'
 import { makeStyles } from '@material-ui/core/styles'
+import { useMediaQuery } from 'react-responsive'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import TwitterIcon from '@material-ui/icons/Twitter'
 import Drawer from '@material-ui/core/Drawer'
-import { useMediaQuery } from 'react-responsive'
-
+import TwitterIcon from '@material-ui/icons/Twitter'
 
 const useStyles = makeStyles({
     fullTweetsListStyle: {
@@ -35,25 +34,23 @@ const TwitterArea = () => {
     const toggleDrawer = (side, open) => event => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
           return;
-        }
-    
+        }  
         setState({ ...state, [side]: open });
       }
 
     const fullList = side => (
-    <div
-        className={classes.fullTweetsListStyle}
-        role="presentation"
-        onClick={toggleDrawer(side, false)}
-        onKeyDown={toggleDrawer(side, false)}
-    >
-        <TweetsList />
-    </div>
+        <div
+            className={classes.fullTweetsListStyle}
+            role="presentation"
+            onClick={toggleDrawer(side, false)}
+            onKeyDown={toggleDrawer(side, false)}
+        >
+            <TweetsList />
+        </div>
     )
 
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})    
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)'})
-
 
     return(
         <>
