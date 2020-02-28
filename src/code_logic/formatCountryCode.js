@@ -117,7 +117,7 @@ const countryCodeAndName = {
     'Kenya': 'KE',
     'Kiribati': 'KI',
     'Republic of Korea': 'KR',
-    'South Korea': 'KR',
+    'Korea': 'KR',
     "Democratic People's Republic of Korea": 'KP',
     'North Korea': 'KP',
     'Kuwait': 'KW',

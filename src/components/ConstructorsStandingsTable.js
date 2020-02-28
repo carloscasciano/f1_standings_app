@@ -120,12 +120,12 @@ export default function ConstructorsStandingsTable(props) {
           >
             <div className={classes.constructorLogoStyle}>
               <a href={constructorData.details} target="blank">
-                <img src={`http://localhost:3001/constructors_imgs/${constructorData.constructor}.png`} 
+                <img src={`https://generalassets.herokuapp.com/constructors_imgs/${constructorData.constructor}.png`} 
                           className={classes.constructorIcon} 
                           alt={constructorData.constructor}
-                          onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
+                          onError={(e)=>{e.target.onerror = null; e.target.src=process.env.PUBLIC_URL + '/dummy_f1.png'}}
                           />
-              </a>
+              </a>2019
             </div>
 
             <div className={classes.constructorNameStyle}>

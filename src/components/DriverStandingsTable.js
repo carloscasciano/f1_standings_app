@@ -9,8 +9,8 @@ import GradeIcon from '@material-ui/icons/Grade';
 import Paper from '@material-ui/core/Paper'
 import Tooltip from '@material-ui/core/Tooltip'
 import CircularProgress from '@material-ui/core/CircularProgress'
-import { useMediaQuery } from 'react-responsive'
 
+import { useMediaQuery } from 'react-responsive'
 
 const useStyles = makeStyles({
   paperStyle: {
@@ -135,10 +135,10 @@ const DriverStandingsTable = (props) => {
 
               <div className={classes.driverConstructorStyle}>
                 
-                <img src={`http://localhost:3001/constructors_imgs/${driverData.constructor}.png`} 
+                <img src={`https://generalassets.herokuapp.com/constructors_imgs/${driverData.constructor}.png`} 
                       className={classes.constructorIconStyle} 
                       alt={driverData.constructor}
-                      onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
+                      onError={(e)=>{e.target.onerror = null; e.target.src=process.env.PUBLIC_URL + '/dummy_f1.png'}}
                 />
                 <Typography variant="body2"> {driverData.constructor} </Typography>
               </div>
@@ -146,10 +146,10 @@ const DriverStandingsTable = (props) => {
               <div className={classes.driverAvatarStyle}>
 
                 <a href={driverData.url} target="blank">
-                  <img src={`http://localhost:3001/drivers_imgs/${driverData.name}.png`} 
+                  <img src={`https://generalassets.herokuapp.com/drivers_imgs/${driverData.name}.png`} 
                         className={classes.driverIconStyle}
                         alt={driverData.name} 
-                        onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/drivers_imgs/dummy.png`}} />
+                        onError={(e)=>{e.target.onerror = null; e.target.src=process.env.PUBLIC_URL + '/dummy.png' }} />
                 </a>
                 
               </div>
