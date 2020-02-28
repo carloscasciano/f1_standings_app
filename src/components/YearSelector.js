@@ -21,7 +21,7 @@ class YearSelector extends React.Component {
                     options={yearOptions}
                     defaultValue={"2019"}
                     style={{ width: 150 }}
-                    renderInput={params => <TextField {...params} label="Select Year" variant="outlined" size="small" />}
+                    renderInput={params => <TextField {...params} label="Select Year" variant="outlined" size="small" style={{width:150}} />}
                     onChange={(event, value) => props.handleAPICalls(value)}
                 />
             </>

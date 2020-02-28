@@ -20,7 +20,7 @@ const useStyles = makeStyles({
         width: 500
     },
     smallButtonStyle: {
-        paddingLeft: "40%"
+        paddingLeft: "15%"
     }
 })
 
@@ -49,8 +49,8 @@ const TwitterArea = () => {
         </div>
     )
 
-    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})    
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)'})
+    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1000px)'})    
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1000px)'})
 
     return(
         <>

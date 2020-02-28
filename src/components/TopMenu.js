@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     },
     yearSelectorStyle: {
         paddingLeft: "50%",
-        paddingRight: "50%",
+        paddingRight: "50%"
     },
     personalInfoStyle: {
         display: "flex",
@@ -53,22 +53,22 @@ const TopMenu = (props) => {
             >   
                 {isDesktopOrLaptop && 
                     <div className={classes.personalInfoStyle}>
-                    <Typography variant="body1">coded by carlos casciano</Typography>
-                    <Link href="https://github.com/carloscasciano/" >
-                        <GitHubIcon className={classes.iconStyle} />
-                    </Link>
-                    <Link href="https://www.linkedin.com/in/carloscasciano/" >
-                        <LinkedInIcon />
-                    </Link>   
-                </div>
+                        <Typography variant="body1">coded by carlos casciano</Typography>
+                        <Link href="https://github.com/carloscasciano/" target="_blank">
+                            <GitHubIcon className={classes.iconStyle} />
+                        </Link>
+                        <Link href="https://www.linkedin.com/in/carloscasciano/" target="_blank">
+                            <LinkedInIcon />
+                        </Link>   
+                     </div>
                 }
 
                 {isTabletOrMobile &&
                     <div className={classes.personalInfoStyleSmall}>
-                        <Link href="https://github.com/carloscasciano/" >
+                        <Link href="https://github.com/carloscasciano/" target="_blank">
                             <GitHubIcon className={classes.iconStyle} />
                         </Link>
-                        <Link href="https://www.linkedin.com/in/carloscasciano/" >
+                        <Link href="https://www.linkedin.com/in/carloscasciano/" target="_blank">
                             <LinkedInIcon />
                         </Link>   
                     </div>
