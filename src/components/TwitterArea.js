@@ -1,5 +1,6 @@
 import React from 'react'
 import TweetsList from './TweetsList'
+import Information from './Information'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
@@ -19,8 +20,8 @@ const useStyles = makeStyles({
     paperStyle: {
         width: 500
     },
-    buttonStyleSmall: {
-        paddingRight: 5
+    smallButtonStyle: {
+        paddingLeft: "40%"
     }
 })
 
@@ -57,29 +58,32 @@ const TwitterArea = () => {
     return(
         <>
             {isDesktopOrLaptop && 
-                <Button
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                    className={classes.buttonStyle}
-                    startIcon={<TwitterIcon />}
-                    onClick={toggleDrawer('left', true)}
-                >
-                    Last News
-                 </Button>
-            
+                <>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        size="large"
+                        className={classes.buttonStyle}
+                        startIcon={<TwitterIcon />}
+                        onClick={toggleDrawer('left', true)}
+                    >
+                        Last News
+                    </Button>
+                    <Information />
+                </>
             }
 
             {isTabletOrMobile && 
-                <IconButton
-                    color="primary"
-                    className={classes.smallButtonStyle}
-                    onClick={toggleDrawer('left', true)}
-                >
-                    <TwitterIcon />
-                </IconButton>
-
-                          
+                <>
+                    <IconButton
+                        color="primary"
+                        className={classes.smallButtonStyle}
+                        onClick={toggleDrawer('left', true)}
+                    >
+                        <TwitterIcon />
+                    </IconButton>
+                    <Information />  
+                </>         
             }
 
             <Drawer 

@@ -24,7 +24,9 @@ const useStyles = makeStyles({
         
     },
     yearSelectorStyle: {
-        margin: 300
+        paddingLeft: "50%",
+        paddingRight: "50%",
+        
     },
     personalInfoStyle: {
         display: "flex",
@@ -83,7 +85,7 @@ const TopMenu = (props) => {
                         className={classes.yearSelectorStyle}
                     />
                     <TwitterArea />
-                    <Information />
+                    
             </Paper> 
         </>
     )

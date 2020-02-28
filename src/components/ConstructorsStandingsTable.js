@@ -74,7 +74,6 @@ const useStyles = makeStyles({
 
 export default function ConstructorsStandingsTable(props) {
   const constructorRows = props.constructorStandingsData
-  console.log(constructorRows)
   const classes = useStyles()
 
   //media queries
