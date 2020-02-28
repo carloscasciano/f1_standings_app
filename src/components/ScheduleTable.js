@@ -8,6 +8,7 @@ import EmojiEventsIcon from '@material-ui/icons/EmojiEvents'
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Tooltip from '@material-ui/core/Tooltip'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import { useMediaQuery } from 'react-responsive'
 
 
 
@@ -21,7 +22,8 @@ const useStyles = makeStyles({
     width: 64,
   },
   paperStyle: {
-    minWidth: 380,
+    maxWidth: 320,
+    minWidth: 320,
     minHeight: 120,
     marginBottom: 10,
     margimTop: 5,
@@ -66,16 +68,25 @@ const useStyles = makeStyles({
     alignItems: "center"
   },
   gridStyle: {
-    margin: 10
+  },
+  paperTitleStyle: {
+    marginBottom: 10,
+    margimTop: 10,
+    maxWidth: 320,
+    minWidth: 320
   }
 })
 
 
 const ScheduleTable = (props) => {
     
-    const scheduleRows = props.scheduleData
-    const classes = useStyles()
+  const scheduleRows = props.scheduleData
+  const classes = useStyles()
 
+  //media queries
+    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1000px)'})
+
+  //render
     if (typeof scheduleRows === 'string') {
         return (
           <>
@@ -92,6 +103,14 @@ const ScheduleTable = (props) => {
                 alignItems="center"
                 className={classes.gridStyle}
               >
+                {isDesktopOrLaptop &&        
+                  <Paper
+                    className={classes.paperTitleStyle}
+                    elevation={5}
+                  >
+                    <Typography variant="h5" className={classes.titleStyle}>Schedule</Typography>
+                  </Paper>
+                }
                 {scheduleRows.map(scheduleData => (
                   <Paper
                     key={scheduleData.gp}

@@ -3,6 +3,7 @@ import DriverStandingsTable from './DriverStandingsTable'
 import ConstructorsStandingsTable from './ConstructorsStandingsTable'
 import ScheduleTable from './ScheduleTable'
 import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 
@@ -13,7 +14,7 @@ const useStyles = makeStyles({
     },
     titleStyle: {
         margin: 15
-    }
+    },
 })
 
 const StandingsArea = (props) => {
@@ -32,17 +33,14 @@ const StandingsArea = (props) => {
                 justify="center"
                 alignItems="flex-start"
             >
-                <div className={classes.columnAreaStyle}>
-                    <Typography variant="h5" className={classes.titleStyle}>Constructors</Typography>
+                <div className={classes.columnAreaStyle}>                    
                     <ConstructorsStandingsTable constructorStandingsData={constructorStandingsData}/>
                 </div>
                 <div className={classes.columnAreaStyle}>
-                    <Typography variant="h5" className={classes.titleStyle}>Drivers</Typography>
                     <DriverStandingsTable driverStandingsData={driverStandingsData} />
                 </div>
                 
                 <div className={classes.columnAreaStyle}>
-                    <Typography variant="h5" className={classes.titleStyle}>Schedule</Typography>
                     <ScheduleTable scheduleData={scheduleData} />
                 </div>
                 

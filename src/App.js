@@ -1,13 +1,21 @@
 import React from 'react';
 import './App.css';
 import {useState} from 'react'
+import { useMediaQuery } from 'react-responsive'
+
+
 // axios calls
 import getDriversStandingsData from './f1_data_calls/getDriversStandings'
 import getConstructorStandingsData from './f1_data_calls/getConstructorStandings'
 import getScheduleData from './f1_data_calls/getSchedule'
+
+
 // components
 import TopMenu from './components/TopMenu'
 import StandingsArea from './components/StandingsArea'
+import StandingsAreaSmall from './components/StandingsAreaSmall'
+
+
 
 function App() {
 
@@ -41,6 +49,10 @@ const handleAPICalls = (optionYear) => {
   primarySetScheduleData(currentYear)
 }
 
+// media queries
+
+const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1000px)'})
+const isTabletOrMobile = useMediaQuery({query: '(max-width: 1000px)'})
 
 // App:
 
@@ -48,25 +60,28 @@ const handleAPICalls = (optionYear) => {
 
     <div className="App">
 
-      <TopMenu handleAPICalls={handleAPICalls} />
-      <StandingsArea 
-        driverStandingsData={driverStandingsData}
-        constructorStandingsData={constructorStandingsData}
-        scheduleData={scheduleData}
-      />
-
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          /* alignContent: "flex-start", */
-          alignItems: "baseline",
-          justifyContent: "space-between"
-        }    
+      {isDesktopOrLaptop && 
+        <>
+        <TopMenu handleAPICalls={handleAPICalls} />
+        <StandingsArea 
+          driverStandingsData={driverStandingsData}
+          constructorStandingsData={constructorStandingsData}
+          scheduleData={scheduleData}
+        />
+        </>
       }
-      >
-          
-      </div>
+
+      {isTabletOrMobile &&
+        <>
+          <TopMenu handleAPICalls={handleAPICalls} />
+          <StandingsAreaSmall 
+          driverStandingsData={driverStandingsData}
+          constructorStandingsData={constructorStandingsData}
+          scheduleData={scheduleData}
+        />
+        </>
+      }
+
     </div>
 
   )
@@ -76,3 +91,10 @@ const handleAPICalls = (optionYear) => {
 
 export default App
 
+
+
+/* 
+
+
+
+*/

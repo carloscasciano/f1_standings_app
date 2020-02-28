@@ -2,8 +2,10 @@ import React from 'react'
 import TweetsList from './TweetsList'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
+import IconButton from '@material-ui/core/IconButton'
 import TwitterIcon from '@material-ui/icons/Twitter'
 import Drawer from '@material-ui/core/Drawer'
+import { useMediaQuery } from 'react-responsive'
 
 
 const useStyles = makeStyles({
@@ -16,6 +18,9 @@ const useStyles = makeStyles({
     },
     paperStyle: {
         width: 500
+    },
+    buttonStyleSmall: {
+        paddingRight: 5
     }
 })
 
@@ -43,29 +48,47 @@ const TwitterArea = () => {
     >
         <TweetsList />
     </div>
-      )
+    )
+
+    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1224px)'})    
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)'})
+
 
     return(
         <>
-            <Button
-                variant="outlined"
-                color="primary"
-                size="large"
-                className={classes.buttonStyle}
-                startIcon={<TwitterIcon />}
-                onClick={toggleDrawer('left', true)}
-            >
-            Last News
-            </Button>
+            {isDesktopOrLaptop && 
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="large"
+                    className={classes.buttonStyle}
+                    startIcon={<TwitterIcon />}
+                    onClick={toggleDrawer('left', true)}
+                >
+                    Last News
+                 </Button>
+            
+            }
+
+            {isTabletOrMobile && 
+                <IconButton
+                    color="primary"
+                    className={classes.smallButtonStyle}
+                    onClick={toggleDrawer('left', true)}
+                >
+                    <TwitterIcon />
+                </IconButton>
+
+                          
+            }
+
             <Drawer 
                 anchor="left" 
                 open={state.left} 
                 onClose={toggleDrawer('left', false)}
-                transitionDuration={500}
-                
+                transitionDuration={500}       
             >
-                {fullList('left')}
-                
+                {fullList('left')}  
             </Drawer>
         </>
     )

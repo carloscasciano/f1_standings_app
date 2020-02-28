@@ -8,11 +8,13 @@ import GradeIcon from '@material-ui/icons/Grade';
 import Paper from '@material-ui/core/Paper'
 import Tooltip from '@material-ui/core/Tooltip'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import { useMediaQuery } from 'react-responsive'
 
 
 const useStyles = makeStyles({
   paperStyle: {
-    minWidth: 380,
+    maxWidth: 320,
+    minWidth: 320,
     minHeight: 120,
     marginBottom: 10,
     margimTop: 5,
@@ -64,7 +66,16 @@ const useStyles = makeStyles({
     display: "flex"
   },
   gridStyle: {
-    margin: 10
+    display: "flex",
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "start"
+  },
+  paperTitleStyle: {
+    marginBottom: 10,
+    margimTop: 10,
+    maxWidth: 320,
+    minWidth: 320
   }
 })
 
@@ -72,6 +83,10 @@ const DriverStandingsTable = (props) => {
   const driversRows = props.driverStandingsData
   const classes = useStyles()
 
+  //media queries
+  const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1000px)'})
+
+  //render
   if (typeof driversRows === 'string') {
     return (
       <CircularProgress />
@@ -87,6 +102,15 @@ const DriverStandingsTable = (props) => {
           alignItems="center" 
           className={classes.gridStyle}      
         >
+          {isDesktopOrLaptop &&        
+            <Paper
+              className={classes.paperTitleStyle}
+              elevation={5}
+            >
+              <Typography variant="h5" className={classes.titleStyle}>Drivers</Typography>
+            </Paper>
+          }
+
           {driversRows.map(driverData => (
             <Paper
               key={driverData.position}

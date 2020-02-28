@@ -1,6 +1,7 @@
 import React from 'react'
 import YearSelector from "./YearSelector"
 import TwitterArea from "./TwitterArea"
+import { useMediaQuery } from 'react-responsive'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
@@ -17,11 +18,11 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         alignContent: "center",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        marginBottom: 15
         
     },
     yearSelectorStyle: {
-        
         margin: 300
     },
     personalInfoStyle: {
@@ -33,19 +34,41 @@ const useStyles = makeStyles({
     iconStyle: {
         paddingLeft: 4,
         paddingRight: 2
+    },
+    personalInfoStyleSmall: {
+        display: "flex",
+        gridColumn: "1/4",
+        paddingLeft: 4
+        
     }
 })
 
 const TopMenu = (props) => {
     const classes = useStyles()
+
+    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1000px)'})    
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1000px)'})
+
     return (
         <>  
             <Paper
                 elevation={5}
                 className={classes.topMenu}
             >   
+                {isDesktopOrLaptop && 
                     <div className={classes.personalInfoStyle}>
-                        <Typography variant="body1">coded by carlos casciano</Typography>
+                    <Typography variant="body1">coded by carlos casciano</Typography>
+                    <Link href="https://github.com/carloscasciano/" >
+                        <GitHubIcon className={classes.iconStyle} />
+                    </Link>
+                    <Link href="https://www.linkedin.com/in/carloscasciano/" >
+                        <LinkedInIcon />
+                    </Link>   
+                </div>
+                }
+
+                {isTabletOrMobile &&
+                    <div className={classes.personalInfoStyleSmall}>
                         <Link href="https://github.com/carloscasciano/" >
                             <GitHubIcon className={classes.iconStyle} />
                         </Link>
@@ -53,6 +76,7 @@ const TopMenu = (props) => {
                             <LinkedInIcon />
                         </Link>   
                     </div>
+                }
                     <YearSelector 
                         props={props} 
                         className={classes.yearSelectorStyle}

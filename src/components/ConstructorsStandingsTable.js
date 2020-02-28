@@ -9,8 +9,7 @@ import GradeIcon from '@material-ui/icons/Grade';
 import Paper from '@material-ui/core/Paper'
 import Tooltip from '@material-ui/core/Tooltip'
 import CircularProgress from '@material-ui/core/CircularProgress'
-
-
+import { useMediaQuery } from 'react-responsive'
 
 const useStyles = makeStyles({
 
@@ -19,8 +18,17 @@ const useStyles = makeStyles({
     width: 120
   },
   paperStyle: {
-    minWidth: 380,
-    minHeight: 120,
+    maxWidth: 320,
+    minWidth: 320,
+    minHeight: 100,
+    marginBottom: 10,
+    margimTop: 5,
+    display: "grid",
+    gridGap: 0,
+  },
+  paperStyleMobile: {
+    minWidth: 240,
+    minHeight: 100,
     marginBottom: 10,
     margimTop: 5,
     display: "grid",
@@ -54,25 +62,34 @@ const useStyles = makeStyles({
     display: "flex"
   },
   gridStyle: {
-    margin: 10
+    
+  },
+  paperTitleStyle: {
+    marginBottom: 10,
+    margimTop: 10,
+    maxWidth: 320,
+    minWidth: 320
   }
 })
 
 export default function ConstructorsStandingsTable(props) {
   const constructorRows = props.constructorStandingsData
   const classes = useStyles()
+
+  //media queries
+  const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1000px)'})
   
+  //render
   if (constructorRows === '') {
     return (
       <>
         <CircularProgress />
-
       </>
     )
   } else if (constructorRows === 'did not existed until 1958') {
     return (
       <>
-        <p>Constructor Championship only existed after 1958</p>
+        <p>Constructors Championship only existed after 1958</p>
       </>
     )
   } 
@@ -85,6 +102,16 @@ export default function ConstructorsStandingsTable(props) {
         alignItems="center"
         className={classes.gridStyle}
       > 
+      
+        {isDesktopOrLaptop &&        
+          <Paper
+            className={classes.paperTitleStyle}
+            elevation={5}
+          >
+            <Typography variant="h5" className={classes.titleStyle}>Constructors</Typography>
+           </Paper>
+        }
+        
         {constructorRows.map(constructorData => (
           <Paper
             key={constructorData.position}
@@ -132,33 +159,3 @@ export default function ConstructorsStandingsTable(props) {
     )
   } 
 }
-
-
-
-/* 
-
-<Card 
-              className={classes.root}
-              key={row.position}
-          >
-              <CardContent>
-                  <Typography variant="h5" component="h2">
-                    {row.position} {row.constructor}
-                    </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-                      Wins: {row.wins}
-                  </Typography>
-                    <img src={`http://localhost:3001/constructors_imgs/${row.constructor}.png`} 
-                         className={classes.constructorIcon} 
-                         alt={row.constructor}
-                         onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
-                         />
-                  <Typography variant="body2" component="p">
-                      Points: {row.points}
-                  </Typography>
-                  
-              </CardContent>
-          </Card>
-
-
-*/
