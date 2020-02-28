@@ -3,9 +3,7 @@ import DriverStandingsTable from './DriverStandingsTable'
 import ConstructorsStandingsTable from './ConstructorsStandingsTable'
 import ScheduleTable from './ScheduleTable'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
-import { Typography } from '@material-ui/core'
 
 
 const useStyles = makeStyles({

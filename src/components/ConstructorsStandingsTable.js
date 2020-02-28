@@ -74,6 +74,7 @@ const useStyles = makeStyles({
 
 export default function ConstructorsStandingsTable(props) {
   const constructorRows = props.constructorStandingsData
+  console.log(constructorRows)
   const classes = useStyles()
 
   //media queries
@@ -119,11 +120,13 @@ export default function ConstructorsStandingsTable(props) {
             elevation={5}
           >
             <div className={classes.constructorLogoStyle}>
-              <img src={`http://localhost:3001/constructors_imgs/${constructorData.constructor}.png`} 
-                         className={classes.constructorIcon} 
-                         alt={constructorData.constructor}
-                         onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
-                         />
+              <a href={constructorData.details} target="blank">
+                <img src={`http://localhost:3001/constructors_imgs/${constructorData.constructor}.png`} 
+                          className={classes.constructorIcon} 
+                          alt={constructorData.constructor}
+                          onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
+                          />
+              </a>
             </div>
 
             <div className={classes.constructorNameStyle}>

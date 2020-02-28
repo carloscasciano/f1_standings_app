@@ -2,10 +2,8 @@ import React from 'react'
 import DriverStandingsTable from './DriverStandingsTable'
 import ConstructorsStandingsTable from './ConstructorsStandingsTable'
 import ScheduleTable from './ScheduleTable'
-import Grid from '@material-ui/core/Grid'
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
-import Paper from '@material-ui/core/Paper'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';

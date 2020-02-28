@@ -9,8 +9,8 @@ async function getRawDriverStandingsData(year) {
     }
   }
 
-const createDriverStandingsData = (position, name, constructor, wins, points) => {
-    return {position, name, constructor, wins, points}
+const createDriverStandingsData = (position, name, constructor, wins, points, url) => {
+    return {position, name, constructor, wins, points, url}
 }
 
 const createDriverStandingsRows = (driversList) => {
@@ -31,7 +31,8 @@ const createDriverStandingsRows = (driversList) => {
             (driversList[i]["Driver"]["givenName"] + " " + driversList[i]["Driver"]["familyName"] ),
             constructorCheck,
             driversList[i]['wins'],
-            driversList[i]['points']
+            driversList[i]['points'],
+            driversList[i]["Driver"]['url']
         )
         driverStandingsRows.push(tempArray)
     }

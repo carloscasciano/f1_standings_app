@@ -113,8 +113,10 @@ const DriverStandingsTable = (props) => {
               <Typography variant="h5" className={classes.titleStyle}>Drivers</Typography>
             </Paper>
           }
-
+          
           {driversRows.map(driverData => (
+            
+            
             <Paper
               key={driverData.position}
               className={classes.paperStyle}
@@ -125,12 +127,14 @@ const DriverStandingsTable = (props) => {
                   variant="h6"
                   align="left"
                   noWrap={true}
+                  className={classes.nameFontStyle}
                 >
-                  <b>{formatLongNames(driverData.name, 18)}</b>
+                    <b>{formatLongNames(driverData.name, 18)}</b>    
                 </Typography>
               </div>
 
               <div className={classes.driverConstructorStyle}>
+                
                 <img src={`http://localhost:3001/constructors_imgs/${driverData.constructor}.png`} 
                       className={classes.constructorIconStyle} 
                       alt={driverData.constructor}
@@ -140,10 +144,14 @@ const DriverStandingsTable = (props) => {
               </div>
 
               <div className={classes.driverAvatarStyle}>
-                <img src={`http://localhost:3001/drivers_imgs/${driverData.name}.png`} 
-                      className={classes.driverIconStyle}
-                      alt={driverData.name} 
-                      onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/drivers_imgs/dummy.png`}} />
+
+                <a href={driverData.url} target="blank">
+                  <img src={`http://localhost:3001/drivers_imgs/${driverData.name}.png`} 
+                        className={classes.driverIconStyle}
+                        alt={driverData.name} 
+                        onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/drivers_imgs/dummy.png`}} />
+                </a>
+                
               </div>
 
               <div className={classes.infoIconsStyle}>
