@@ -7,7 +7,7 @@ async function getRawConstructorStandingsData(year) {
     } catch (error) {
       console.error(error);
     }
-  }
+}
 
 const createConstructorsStandingsData = (position, constructor, wins, points, nationality, details) => {
     return {position, constructor, wins, points, nationality, details}
@@ -16,7 +16,7 @@ const createConstructorsStandingsData = (position, constructor, wins, points, na
 const createConstructorRows = (constructorsList) => {
     let constructorStandingsRows = []
     for (let i = 0; i < constructorsList.length; i++) {
-        let tempArray = createConstructorsStandingsData(
+        let tempArray = createConstructorsStandingsData (
             constructorsList[i]['position'],
             constructorsList[i]['Constructor']['name'],
             constructorsList[i]['wins'],
@@ -29,9 +29,8 @@ const createConstructorRows = (constructorsList) => {
     return constructorStandingsRows
 }
 
-
 async function getConstructorStandingsData(year) {
-    // constructors standings not available before 1958 on API
+    // Constructors Standings not available before 1958 on API
     if (year < 1958) {
         return "did not existed until 1958"
     } else {

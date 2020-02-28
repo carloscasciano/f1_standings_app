@@ -2,8 +2,6 @@ import formatHour from '../code_logic/formatHour'
 const axios = require('axios')
 const moment = require('moment')
 
-
-
 async function getRawScheduleStandingsData(year) {
     try {
         const response = await axios.get(`https://ergast.com/api/f1/${year}.json`)
@@ -11,7 +9,7 @@ async function getRawScheduleStandingsData(year) {
     } catch (error) {
       console.error(error);
     }
-  }
+}
 
 async function getQualifyingData(year) {
     try {
@@ -20,7 +18,7 @@ async function getQualifyingData(year) {
     } catch (error) {
       console.error(error);
     }
-  }
+}
 
 async function getWinnerData(year) {
     try {
@@ -29,8 +27,7 @@ async function getWinnerData(year) {
     } catch (error) {
       console.error(error);
     }
-  }
-
+}
 
 const createScheduleData = (date, hour, gp, circuit, polePosition, raceWinner, details, country) => {
     return {date, hour, gp, circuit, polePosition, raceWinner, details, country}
@@ -78,13 +75,11 @@ const createScheduleRows = (scheduleList, qualifyingList, winnerList, year) => {
             winnerData,
             scheduleList[i]["url"],
             scheduleList[i]["Circuit"]["Location"]["country"]
-
         )
         scheduleRows.push(tempArray)
     }
     return scheduleRows
 }
-
 
 async function getScheduleData(year) {
     const scheduleResponse = await getRawScheduleStandingsData(year)
@@ -92,7 +87,6 @@ async function getScheduleData(year) {
     const scheduleParsedJson = JSON.parse(scheduleUnformattedJson)
     const scheduleList = scheduleParsedJson["MRData"]["RaceTable"]["Races"]
     
-
     // api does not have info before 2003
     let qualifyingList = []
     if (year < 2003) {
@@ -104,15 +98,13 @@ async function getScheduleData(year) {
         qualifyingList = qualifyingParsedJson["MRData"]["RaceTable"]["Races"]
     }
    
-
     const winnerResponse = await getWinnerData(year)
     const winnerUnformattedJson = winnerResponse.request.response
     const winnerParsedJson = JSON.parse(winnerUnformattedJson)
     const winnerList = winnerParsedJson["MRData"]["RaceTable"]["Races"]
 
     let returnData = createScheduleRows(scheduleList, qualifyingList, winnerList, year)
-    returnData = returnData.map(element=>element)
-    
+    returnData = returnData.map(element=>element)  
     return returnData
 }
 
