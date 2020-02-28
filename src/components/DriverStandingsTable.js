@@ -1,4 +1,5 @@
 import React from 'react';
+import formatLongNames from '../code_logic/formatLongNames'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid'
@@ -20,10 +21,13 @@ const useStyles = makeStyles({
     margimTop: 5,
     display: "grid",
     gridGap: 5,
+    overflow: "hidden"
   },
   driverAvatarStyle: {
     gridColumn: "3/4",
-    gridRow: "1/4"
+    gridRow: "1/4",
+    display: "grid",
+    alignItems: "end"
   },
   infoIconsStyle:{
     gridColumn: "1/3",
@@ -59,8 +63,8 @@ const useStyles = makeStyles({
     paddingRight: 10,
   },
   driverIconStyle: {
-    height: 150,
-    width: 150,
+    height: 140,
+    width: 140,
   },
   miniIconGroupStyle: {
     display: "flex"
@@ -91,7 +95,6 @@ const DriverStandingsTable = (props) => {
     return (
       <CircularProgress />
     )
-    
   } else {
     return (
       <>
@@ -118,7 +121,13 @@ const DriverStandingsTable = (props) => {
               elevation={5}
             >
               <div className={classes.driverNameStyle}>
-                <Typography variant="h6"><b>{driverData.name}</b></Typography>
+                <Typography 
+                  variant="h6"
+                  align="left"
+                  noWrap={true}
+                >
+                  <b>{formatLongNames(driverData.name)}</b>
+                </Typography>
               </div>
 
               <div className={classes.driverConstructorStyle}>
