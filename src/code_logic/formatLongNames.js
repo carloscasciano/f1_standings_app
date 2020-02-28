@@ -1,5 +1,5 @@
-const formatLongNames = (name) => {
-    if (name.length >= 18) {
+const formatLongNames = (name, sizeInChars) => {
+    if (name.length >= sizeInChars) {
         let namesArr = name.split(" ")
         namesArr[0] = namesArr[0].charAt(0) + "."
         let shortName = namesArr.join(" ")

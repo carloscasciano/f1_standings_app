@@ -126,15 +126,15 @@ const DriverStandingsTable = (props) => {
                   align="left"
                   noWrap={true}
                 >
-                  <b>{formatLongNames(driverData.name)}</b>
+                  <b>{formatLongNames(driverData.name, 18)}</b>
                 </Typography>
               </div>
 
               <div className={classes.driverConstructorStyle}>
                 <img src={`http://localhost:3001/constructors_imgs/${driverData.constructor}.png`} 
-                            className={classes.constructorIconStyle} 
-                            alt={driverData.constructor}
-                            onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
+                      className={classes.constructorIconStyle} 
+                      alt={driverData.constructor}
+                      onError={(e)=>{e.target.onerror = null; e.target.src=`http://localhost:3001/constructors_imgs/dummy_f1.png`}}
                 />
                 <Typography variant="body2"> {driverData.constructor} </Typography>
               </div>

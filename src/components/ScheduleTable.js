@@ -1,4 +1,5 @@
 import React from 'react'
+import formatLongNames from '../code_logic/formatLongNames'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
@@ -119,7 +120,7 @@ const ScheduleTable = (props) => {
                   >
                     <div className={classes.gpNameStyle}>
                       <Tooltip title={scheduleData.gp} placement="top-start">
-                        <Typography variant="h6"><b>{scheduleData.circuit}</b></Typography>
+                        <Typography variant="h6"><b>{formatLongNames(scheduleData.circuit, 28)}</b></Typography>
                       </Tooltip>
                       
                     </div>
