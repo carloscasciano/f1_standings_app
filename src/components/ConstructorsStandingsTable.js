@@ -2,6 +2,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { useMediaQuery } from 'react-responsive'
+import formatLongNames from '../code_logic/formatLongNames'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
@@ -124,7 +125,7 @@ export default function ConstructorsStandingsTable(props) {
             </div>
 
             <div className={classes.constructorNameStyle}>
-              <Typography variant="h6"><b>{constructorData.constructor}</b></Typography>
+              <Typography variant="h6"><b>{formatLongNames(constructorData.constructor, 20)}</b></Typography>
             </div>
 
             <div className={classes.infoIconsStyle}>
