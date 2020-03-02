@@ -13,17 +13,18 @@ I do not own or intend to own any of the information or images displayed here. T
 
 #### Features
 
-Check any circuit year (including current) for Formula 1 Standings and details.  
-
-![alt text](https://imgur.com/OLKe0l0 "Main Features")
-
-
+Check any circuit year (including current) for Formula 1 Standings, drivers and races details.  
+  
+<img src="https://media.giphy.com/media/MCio2anvEVpwfuI1Gg/giphy.gif"/>
+  
+----
+  
 Constructors:  
 - [X] Check position
 - [X] Check # of wins
 - [X] Check Total Points
 - [X] Link to company Wikipedia Page 
-
+  
 <img src="https://media.giphy.com/media/hoyAKEFiNvD7LS0tva/giphy.gif" />
   
 ----
@@ -34,7 +35,7 @@ Drivers:
 - [X] Check # of wins
 - [X] Check Total Points
 - [X] Link to personal Wikipedia Page 
-
+  
 <img src="https://media.giphy.com/media/Veqmeii5wnKQf668ai/giphy.gif"/>
   
 ----
@@ -46,13 +47,25 @@ Schedule:
 - [X] Show Race Winner
 - [X] Show Country
 - [X] Link to specific race Wikipedia Page for more details
-
+  
+<img src="https://media.giphy.com/media/ZaFXBFU6WMdZQ8v2hd/giphy.gif"/>
+  
+----
+  
 Twitter:
 - [X] Check last news
-
+  
+<img src="https://media.giphy.com/media/YSHbDHYSaetEDkodRM/giphy.gif"/>
+  
+----
+  
 Mobile ready
 - [X] Used react-responsive package: https://www.npmjs.com/package/react-responsive
-
+  
+<img src="https://media.giphy.com/media/JUYp2SOsKey1fUFJdz/giphy.gif"/>
+  
+----
+  
 #### Component Logic
 
 Used Material-UI for components: https://material-ui.com/
