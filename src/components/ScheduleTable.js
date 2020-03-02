@@ -131,7 +131,7 @@ const ScheduleTable = (props) => {
                   <div className={classes.gpDateTime}>
                     <div className={classes.dateGroup}>
                       <Typography variant="body1">
-                          {scheduleData.date} - {scheduleData.hour}
+                        {scheduleData.date} - {scheduleData.hour}
                       </Typography>  
                     </div>
                   </div>

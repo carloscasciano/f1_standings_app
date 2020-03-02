@@ -20,7 +20,7 @@ const createDriverStandingsRows = (driversList) => {
         
         // API dont have constructors info if season did not started, used conditional below to overrides it 
         if (driversList[i]["Constructors"].length === 0) {
-            constructorCheck = "TBC when season starts"
+            constructorCheck = "TBU soon"
         } else {
             constructorCheck = driversList[i]["Constructors"][0]["name"]
         }
