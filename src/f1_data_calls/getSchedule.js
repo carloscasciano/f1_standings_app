@@ -61,9 +61,9 @@ const createScheduleRows = (scheduleList, qualifyingList, winnerList, year) => {
 
         //hour off cases
         if (scheduleList[i]["time"] === undefined ) {
-            hourData = "N/A"
+            hourData = ""
         } else {
-            hourData = formatHour(scheduleList[i]["time"]) + " GMT"
+            hourData = formatHour(scheduleList[i]["time"]) + " (GMT)"
         }
         
         let tempArray = createScheduleData(

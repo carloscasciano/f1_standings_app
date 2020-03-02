@@ -20,7 +20,11 @@ const useStyles = makeStyles({
         width: 500
     },
     smallButtonStyle: {
-        paddingLeft: "15%"
+        paddingLeft: "1%"
+    },
+    iconOrder: {
+        display: "flex",
+
     }
 })
 
@@ -72,14 +76,17 @@ const TwitterArea = () => {
 
             {isTabletOrMobile && 
                 <>
-                    <IconButton
-                        color="primary"
-                        className={classes.smallButtonStyle}
-                        onClick={toggleDrawer('left', true)}
-                    >
-                        <TwitterIcon />
-                    </IconButton>
-                    <Information />  
+                    <div className={classes.iconOrder}>
+                        <IconButton
+                            color="primary"
+                            className={classes.smallButtonStyle}
+                            onClick={toggleDrawer('left', true)}
+                        >
+                            <TwitterIcon />
+                        </IconButton>
+                        <Information />
+                    </div>
+                      
                 </>         
             }
 
