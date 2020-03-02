@@ -17,6 +17,7 @@ Check any circuit year (including current) for Formula 1 Standings and details.
 
 ![alt text](https://imgur.com/OLKe0l0 "Main Features")
 
+<img src="https://imgur.com/OLKe0l0" width="40" height="40" />
 
 
 Constructors:  
