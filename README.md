@@ -48,16 +48,16 @@ Used Material-UI for components: https://material-ui.com/
 
 Structure:  
 
-|- TopMenu 
-|-- Personal Info
-|-- Year Selector
-|-- Twitter Area
-|--- Twitter Commands
-|--- Extra Information
-|- Standings Area 
-|-- Constructor Standings
-|-- Driver Standings
-|-- Schedule Table
+|- TopMenu  
+|-- Personal Info  
+|-- Year Selector  
+|-- Twitter Area  
+|--- Twitter Commands  
+|--- Extra Information  
+|- Standings Area  
+|-- Constructor Standings  
+|-- Driver Standings  
+|-- Schedule Table  
 
 #### Api Calls
 
