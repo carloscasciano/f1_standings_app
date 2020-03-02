@@ -17,8 +17,6 @@ Check any circuit year (including current) for Formula 1 Standings and details.
 
 ![alt text](https://imgur.com/OLKe0l0 "Main Features")
 
-<img src="https://media.giphy.com/media/hoyAKEFiNvD7LS0tva/giphy.gif" width="400" height="400" />
-
 
 Constructors:  
 - [X] Check position
@@ -26,6 +24,10 @@ Constructors:
 - [X] Check Total Points
 - [X] Link to company Wikipedia Page 
 
+<img src="https://media.giphy.com/media/hoyAKEFiNvD7LS0tva/giphy.gif" />
+  
+----
+  
 Drivers:  
 - [X] Show current constructor
 - [X] Check position
@@ -33,6 +35,10 @@ Drivers:
 - [X] Check Total Points
 - [X] Link to personal Wikipedia Page 
 
+<img src="https://media.giphy.com/media/Veqmeii5wnKQf668ai/giphy.gif"/>
+  
+----
+  
 Schedule:  
 - [X] Check Circuits order
 - [X] Check Date and Time (if available)
