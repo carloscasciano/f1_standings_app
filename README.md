@@ -99,7 +99,7 @@ Twitter:
 
 #### Images
 
-- For further studies, created a simple personal server to serve drivers and constructors images with Node and Express. More details on this repository (soon).
+- For further studies, created a simple personal server to serve drivers and constructors images with Node and Express. Code on this repository: https://github.com/carloscasciano/f1_assets_server.
 
 - Flags images are served from www.countryflags.io and receives a small treatment to get proper countries names and codes
 
