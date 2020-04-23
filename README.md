@@ -13,7 +13,7 @@ I do not own or intend to own any of the information or images displayed here. T
 
 #### Features
 
-Check any circuit year (including current) for Formula 1 Standings, drivers and races details.  
+Check any circuit year (2020 was cancelled due COVID19, so it will not appear until season starts) for Formula 1 Standings, drivers and races details.  
   
 <img src="https://media.giphy.com/media/MCio2anvEVpwfuI1Gg/giphy.gif"/>
   
