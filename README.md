@@ -20,47 +20,47 @@ Check any circuit year (2020 was cancelled due COVID19, so it will not appear un
 ----
   
 Constructors:  
-- [X] Check position
-- [X] Check # of wins
-- [X] Check Total Points
-- [X] Link to company Wikipedia Page 
+:white_check_mark: Check position.
+:white_check_mark: Check # of wins.
+:white_check_mark: Check Total Points.
+:white_check_mark: Link to company Wikipedia Page.
   
 <img src="https://media.giphy.com/media/hoyAKEFiNvD7LS0tva/giphy.gif" />
   
 ----
   
 Drivers:  
-- [X] Show current constructor
-- [X] Check position
-- [X] Check # of wins
-- [X] Check Total Points
-- [X] Link to personal Wikipedia Page 
+:white_check_mark: Show current constructor.
+:white_check_mark: Check position.
+:white_check_mark: Check # of wins.
+:white_check_mark: Check Total Points.
+:white_check_mark: Link to personal Wikipedia Page.
   
 <img src="https://media.giphy.com/media/Veqmeii5wnKQf668ai/giphy.gif"/>
   
 ----
   
 Schedule:  
-- [X] Check Circuits order
-- [X] Check Date and Time (if available)
-- [X] Show Pole Position
-- [X] Show Race Winner
-- [X] Show Country
-- [X] Link to specific race Wikipedia Page for more details
+:white_check_mark: Check Circuits order.
+:white_check_mark: Check Date and Time (if available).
+:white_check_mark: Show Pole Position.
+:white_check_mark: Show Race Winner.
+:white_check_mark: Show Country.
+:white_check_mark: Link to specific race Wikipedia Page for more details.
   
 <img src="https://media.giphy.com/media/ZaFXBFU6WMdZQ8v2hd/giphy.gif"/>
   
 ----
   
 Twitter:
-- [X] Check last news
+:white_check_mark: Check last news.
   
 <img src="https://media.giphy.com/media/YSHbDHYSaetEDkodRM/giphy.gif"/>
   
 ----
   
 Mobile ready
-- [X] Used react-responsive package: https://www.npmjs.com/package/react-responsive
+:white_check_mark: Used react-responsive package: https://www.npmjs.com/package/react-responsive
   
 <img src="https://media.giphy.com/media/JUYp2SOsKey1fUFJdz/giphy.gif"/>
   
