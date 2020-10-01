@@ -20,7 +20,7 @@ Check any circuit year (2020 was cancelled due COVID19, so it will not appear un
 ----
   
 Constructors:  
-- [X] Check position
+- :white_check_mark: Check position
 - [X] Check # of wins
 - [X] Check Total Points
 - [X] Link to company Wikipedia Page 
